@@ -1,0 +1,57 @@
+h3{
+  color:dimgray;
+}
+.elementStyle{
+    border: solid 2px lightgray;
+    margin: 10px;
+    border-radius: 10px;
+    padding:5px
+  }
+
+  .newTaskStyle{
+    border: solid 2px lightgray;
+    margin: 10px;
+    border-radius: 10px;
+    padding:5px;
+    width: 79%;
+  }
+
+.divStyle{    
+      border: double 5px;
+      padding: 5px;
+      border-radius: 15px;  
+      border-color:darkcyan;
+      max-width: 400px;
+      margin: auto;
+      background-color:beige
+    }
+
+.inputCheckbox{
+  float: left;
+}
+
+.radioStyle{
+  margin-right: 20px
+}
+
+.topic{
+  text-align: left;
+  margin-left: 20px;
+}
+.deleteButton{
+  float:right;
+  color:rgba(241, 11, 11, 0.356);
+  font-weight: bold;
+  border-radius: 7px;
+  background-color: beige;
+}
+
+.addButtonStyle{
+  float:right;
+  vertical-align: middle;
+  margin-top:10px;
+  margin-right:3px;
+  border-radius: 7px;
+  height: 27px;
+  background-color: lightblue;
+}
