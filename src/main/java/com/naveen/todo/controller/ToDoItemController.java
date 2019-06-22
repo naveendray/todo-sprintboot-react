@@ -28,5 +28,10 @@ public class ToDoItemController {
         return toDoItemRepository.findAll();
     }
 
+    @DeleteMapping(value="/delete",produces = {MediaType.APPLICATION_JSON_VALUE})
+    public void deleteToDo(@RequestBody ToDoItem todo){
+        toDoItemRepository.delete(todo);
+    }
+
 
 }

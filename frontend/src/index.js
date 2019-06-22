@@ -79,16 +79,26 @@ class App extends Component {
 
   }
 
-  deleteItem(id) {
-    const newData = this.state.data.filter(
-      item => {
-        if (item.id !== id) {
-          return item;
-        }
-      }
-    )
-    this.setState({ data: newData })
-    this.setCurrentState(newData)
+  deleteItem = async (id) => {
+    // const newData = this.state.data.filter(
+    //   item => {
+    //     if (item.id !== id) {
+    //       return item;
+    //     }
+    //   }
+    // )
+    // this.setState({ data: newData })
+    // this.setCurrentState(newData)
+    const object = {id:id}
+    await fetch('http://localhost:8080/todo/delete', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(object)
+    })
+    this.fetchData()
   }
 
   saveToDo = async (object) => {
