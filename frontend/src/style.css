@@ -20,10 +20,11 @@ h3{
       border: double 5px;
       padding: 5px;
       border-radius: 15px;  
-      border-color:darkcyan;
+      border-color:orange;
       max-width: 400px;
       margin: auto;
-      background-color:beige
+      background-color:beige;
+      margin-top:100px;
     }
 
 .inputCheckbox{
