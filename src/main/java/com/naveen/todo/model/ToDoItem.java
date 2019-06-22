@@ -1,11 +1,14 @@
 package com.naveen.todo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ToDoItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String todo;
     private boolean completed;
@@ -42,5 +45,14 @@ public class ToDoItem {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public String toString() {
+        return "ToDoItem{" +
+                "id=" + id +
+                ", todo='" + todo + '\'' +
+                ", completed=" + completed +
+                '}';
     }
 }

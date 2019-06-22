@@ -1,4 +1,4 @@
-package com.naveen.todo;
+package com.naveen.todo.controller;
 
 import com.naveen.todo.model.ToDoItem;
 import com.naveen.todo.repository.ToDoItemRepository;
@@ -19,11 +19,7 @@ public class ToDoItemController {
 
     @PostMapping(path="/save",  produces = {MediaType.APPLICATION_JSON_VALUE})
     public ToDoItem saveToDo(@RequestBody ToDoItem todo){
-        toDoItemRepository.save(todo);
-        System.out.println(todo.getId());
-        ToDoItem temp = todo;
-        List<ToDoItem> list =  toDoItemRepository.findAll().stream().filter(item -> item.getId()==todo.getId()).collect(Collectors.toList());
-        return list.get(0);
+        return toDoItemRepository.save(todo);
     }
 
     @GetMapping(value="getAll", produces = {MediaType.APPLICATION_JSON_VALUE})
