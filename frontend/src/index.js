@@ -47,13 +47,14 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData()    
-  }
+  } 
 
   changeEvent(id) {
     this.setState(prevState => {
       const newEliment = this.state.data.map(
         item => {
           if (item.id === id) {
+            this.saveToDo({id:item.id,todo:item.todo,completed:!item.completed})            
             return item.completed = !item.completed
           }
           this.setCurrentState(this.state.data)

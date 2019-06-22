@@ -18,7 +18,7 @@ public class ToDoItemController {
     ToDoItemRepository toDoItemRepository;
 
     @PostMapping(path="/save",  produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ToDoItem saveToDo(@RequestBody ToDoItem todo){
+    public ToDoItem saveUpdateToDo(@RequestBody ToDoItem todo){
         return toDoItemRepository.save(todo);
     }
 
@@ -27,5 +27,6 @@ public class ToDoItemController {
     public List<ToDoItem> getAllToDo(){
         return toDoItemRepository.findAll();
     }
+
 
 }
