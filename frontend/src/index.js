@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import "./style.css"
 import DoItem from './DoItem'
 import todoData from './DoData'
-import { async } from 'q';
+// import { async } from 'q';
 
 function NewToDo(props) {
   return (
@@ -19,11 +19,9 @@ class App extends Component {
     super()
 
     this.state = {
-      data: todoData,
+      data: null,
       arranged: null,
-      selected: "showAll",
-      max: null,
-      newTaskValue: ""
+      selected: "showAll"     
     }
 
     this.changeEvent = this.changeEvent.bind(this)
@@ -44,12 +42,11 @@ class App extends Component {
         })     
       }
       )
-    this.setCurrentState(this.state.data)
+    this.setCurrentState(this.state.data)   
   }
 
   componentDidMount() {
-    this.fetchData()
-    this.generateKey();
+    this.fetchData()    
   }
 
   changeEvent(id) {
@@ -93,17 +90,6 @@ class App extends Component {
     this.setCurrentState(newData)
   }
 
-  generateKey() {
-    this.setState(
-      { max: this.state.data.length + 1 }
-    )
-  }
-
-  nextKey() {
-    var temp = this.state.max + 1
-    this.setState({ max: temp })
-  }
-
   saveToDo = async (object) => {
     await fetch('http://localhost:8080/todo/save', {
       method: 'POST',
@@ -113,17 +99,17 @@ class App extends Component {
       },
       body: JSON.stringify(object)
     })
+    this.fetchData()
   }
 
   addNewToDo() {
-    const newTask = { id: this.state.max, "todo": "test task", "completed": false }
+    const newTask = {"todo": "test task", "completed": false }
     newTask.todo = document.getElementById("newTask").value || null
     if (newTask.todo != null) {
       this.saveToDo(newTask)
       this.fetchData()
       console.log(this.state.log)
-      this.setCurrentState(this.state.data)
-      this.nextKey()
+      this.setCurrentState(this.state.data)      
       document.getElementById("newTask").value = null
     } else {
       alert("Please Enter A Task")
